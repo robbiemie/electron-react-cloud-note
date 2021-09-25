@@ -1,5 +1,5 @@
+require('@electron/remote/main').initialize()
 const { app, BrowserWindow, ipcMain } = require("electron")
-
 app.on('ready', () => {
   // 开发依赖
   let mainWindow = new BrowserWindow({
