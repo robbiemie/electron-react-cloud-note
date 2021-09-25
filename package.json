@@ -4,24 +4,51 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "nodemon --watch main.js --exec \"electron .\""
+    "start:electron": "nodemon --watch main.js --exec \"electron .\"",
+    "start": "react-scripts start",
+    "serve": "concurrently \"wait-on  http://localhost:3000 && electron .\" \"cross-env BROWSER=none npm start\""
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
     "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "React"
   ],
-  "author": "GitHub",
+  "author": "robbiemie",
   "license": "CC0-1.0",
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "devDependencies": {
+    "concurrently": "^6.0.1",
+    "cross-env": "^7.0.3",
     "devtron": "^1.4.0",
     "electron": "^15.0.0",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "wait-on": "^5.3.0"
   },
   "dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.0.1",
     "@electron/remote": "^1.1.0"
   }
 }
