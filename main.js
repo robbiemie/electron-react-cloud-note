@@ -16,5 +16,7 @@ app.on('ready', () => {
   mainWindow.webContents.openDevTools({ mode: 'undocked' });
   ipcMain.on('message', (event,args) => {
     console.log(args)
+    // reply message
+    event.reply('reply', 'hello from main process')
   })
 })
